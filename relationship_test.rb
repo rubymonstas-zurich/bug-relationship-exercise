@@ -11,7 +11,11 @@ require_relative "relationship"
 # Below are a couple of tests. They don't run because the described
 # class (Relationship) is not implemented. It's your task to make them pass!
 #
-# Note: Some tests also require you to change the original Bug class.
+# Notes: 
+# - Some tests also require you to change the original Bug class.
+# - Remove the `skip` method calls to work on the test. By default, we skip all the tests so you can focus
+#   on them one by one. Remove the skip method call and work on the test until it is green, 
+#   then move on to the next test.
 #
 
 class RelationshipTest < Minitest::Test
