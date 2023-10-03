@@ -11,10 +11,10 @@ require_relative "relationship"
 # Below are a couple of tests. They don't run because the described
 # class (Relationship) is not implemented. It's your task to make them pass!
 #
-# Notes: 
+# Notes:
 # - Some tests also require you to change the original Bug class.
 # - Remove the `skip` method calls to work on the test. By default, we skip all the tests so you can focus
-#   on them one by one. Remove the skip method call and work on the test until it is green, 
+#   on them one by one. Remove the skip method call and work on the test until it is green,
 #   then move on to the next test.
 #
 
@@ -40,6 +40,7 @@ class RelationshipTest < Minitest::Test
   # 'mother') and the two bugs that are part of the relationship.
   def test_1_relationship_attributes
     skip # remove this line when you want to work on this test
+
     assert_equal("father", @father_relationship.kind)
     assert_equal(@father_bug, @father_relationship.bug1)
     assert_equal(@child_bug, @father_relationship.bug2)
@@ -48,13 +49,28 @@ class RelationshipTest < Minitest::Test
   # This tests a method that returns a textual description of a relationship.
   def test_2_relationship_description
     skip # remove this line when you want to work on this test
+
     assert_equal("Harry is Larry's father", @father_relationship.description)
+  end
+
+  # This tests a method that returns a textual description of a relationship
+  # again and makes sure that you don't cheat ;-)
+  def test_2b_relationship_description
+    skip # remove this line when you want to work on this test
+
+    mother_relationship = Relationship.new("mother")
+    mother_bug = Bug.new("Carrie")
+    mother_relationship.bug1 = mother_bug
+    mother_relationship.bug2 = @child_bug
+
+    assert_equal("Carrie is Larry's mother", mother_relationship.description)
   end
 
   # So far, the bugs "know" nothing about their relationships. Let's change that
   # by making this test pass!
   def test_3_bug_has_relationships
     skip # remove this line when you want to work on this test
+
     assert_includes(@father_bug.relationships, @father_relationship)
     assert_includes(@child_bug.relationships, @father_relationship)
   end
@@ -63,8 +79,8 @@ class RelationshipTest < Minitest::Test
   # a textual summary of their relationships.
   def test_4_bug_relationship_summary
     skip # remove this line when you want to work on this test
-    mother_relationship = Relationship.new("mother")
 
+    mother_relationship = Relationship.new("mother")
     mother_bug = Bug.new("Carrie")
 
     mother_relationship.bug1 = mother_bug
